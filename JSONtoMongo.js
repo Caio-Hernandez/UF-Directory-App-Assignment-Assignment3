@@ -17,7 +17,7 @@ var db = mongoose.connect('mongodb://caiohern24:caiyot_e12@ds125994.mlab.com:259
   Instantiate a mongoose model for each listing object in the JSON file,
   and then save it to your Mongo database
  */
-var x = 0;
+ 
 Object.keys(entries).forEach(function(entry) {
   Object.keys(entries[entry]).forEach(function(category) {
     // console.log(entries[entry][category].coordinates);
@@ -25,15 +25,13 @@ Object.keys(entries).forEach(function(entry) {
 
       code: entries[entry][category].code,
       name: entries[entry][category].name,
-      coordinates: entries[entry][category].coordinates,  
+      coordinates: entries[entry][category].coordinates,
       address: entries[entry][category].address
     });
 
     // save the user
     newListing.save(function(err) {
       if (err) throw err;
-      x++;
-      console.log('Listing number ' + x + ' created!');
     });
   });
 });

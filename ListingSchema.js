@@ -11,7 +11,7 @@ var listingSchema = new Schema({
       latitude: Number,
       longitude: Number,
     },
-    address: String,
+    address: { type: String, required: false, unique: false },
     created_at: Date,
     updated_at: Date
 });
